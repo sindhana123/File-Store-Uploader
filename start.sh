@@ -1,2 +1,1 @@
-pip install -r requirements.txt --no-cache-dir
-python3 main.py
+./venv/bin/python main.py

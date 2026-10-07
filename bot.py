@@ -1,6 +1,17 @@
 # Made by @Awakeners_Bots
 # GitHub: https://github.com/Awakener_Bots
 
+import pyromod.listen
+from pyrogram.handlers.message_handler import MessageHandler
+from pyrogram.handlers.callback_query_handler import CallbackQueryHandler
+from pyrogram.handlers.inline_query_handler import InlineQueryHandler
+
+for handler in [MessageHandler, CallbackQueryHandler, InlineQueryHandler]:
+    if hasattr(handler, "resolve_future_or_callback"):
+        if hasattr(handler.resolve_future_or_callback, "__wrapped__"):
+            handler.resolve_future_or_callback = handler.resolve_future_or_callback.__wrapped__
+
+
 from aiohttp import web
 import asyncio
 import time
@@ -14,6 +25,8 @@ from datetime import datetime
 from config import LOGGER, PORT, OWNER_ID
 from helper import MongoDB
 from helper.enhanced_credit_db import EnhancedCreditDB
+from helper.auto_db import Database as AutoDatabase
+from utils.job_queue import worker
 
 version = "v1.0.0"
 
@@ -43,12 +56,13 @@ class Bot(Client):
         self.req_fsub = {}
         self.disable_btn = disable_btn
         self.reply_text = messages.get('REPLY', 'Do not send any useless message in the bot.')
-        self.mongodb = MongoDB(db_uri, db_name)
         self.db_uri = db_uri  # Store for EnhancedCreditDB
         self.db_name = db_name  # Store for EnhancedCreditDB
         self.req_channels = []
     
     async def start(self):
+        self.mongodb = MongoDB(self.db_uri, self.db_name)
+        self.auto_db = AutoDatabase(self.db_uri, "AutoUploaderDB")
         await super().start()
         usr_bot_me = await self.get_me()
         self.uptime = datetime.now()
@@ -114,7 +128,7 @@ class Bot(Client):
             test = None
             for attempt in range(3):
                 try:
-                    test = await self.send_message(chat_id=db_channel.id, text="Testing Message by @GPGMS0")
+                    test = await self.send_message(chat_id=db_channel.id, text="Testing Message by @toonworld4all_Tamil")
                     # if succeeded, break out
                     break
                 except (PeerIdInvalid, ChannelInvalid) as e:
@@ -209,6 +223,7 @@ class Bot(Client):
         try:
             asyncio.create_task(self._broadcast_ttl_worker())
             asyncio.create_task(self._credit_expiry_worker())
+            self.worker_task = asyncio.create_task(worker(self))
         except Exception as e:
             self.LOGGER(__name__, self.name).warning(f"Failed to start background workers: {e}")
 

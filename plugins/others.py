@@ -12,10 +12,10 @@ async def menu_callback(client, query: CallbackQuery):
 
     # base buttons (visible to everyone)
     buttons = [
-        [InlineKeyboardButton("⌜UPDATES⌟", url="https://t.me/Awakeners_bots"),
-         InlineKeyboardButton("⌜ɴᴇᴛᴡᴏʀᴋ⌟", url="https://t.me/The_Mortals")],
+        [InlineKeyboardButton("⌜UPDATES⌟", url="https://t.me/toonworld4all_Tamil"),
+         InlineKeyboardButton("⌜ɴᴇᴛᴡᴏʀᴋ⌟", url="https://t.me/toonworld4all_Tamil")],
         [InlineKeyboardButton("⌜ᴀʙᴏᴜᴛ⌟", callback_data="about"),
-         InlineKeyboardButton("⌜ᴅᴇᴠ⌟", url="https://t.me/GPGMS0")]
+         InlineKeyboardButton("⌜ᴅᴇᴠ⌟", url="https://t.me/toonworld4all_Tamil")]
     ]
 
     # ✅ Only admins see the Settings button

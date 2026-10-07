@@ -1,3 +1,4 @@
+from plugins.auto_uploader.mode_toggle import uploader_mode_filter
 # Made by @Awakeners_Bots
 # GitHub: https://github.com/Awakener_Bots
 
@@ -275,7 +276,7 @@ async def link_generator(client: Client, message: Message):
     await channel_message.reply_text(text, quote=True, reply_markup=reply_markup)
 
 
-@Client.on_message(filters.private & (filters.document | filters.video | filters.audio) & ~filters.command(["start", "batch", "genlink"]))
+@Client.on_message(filters.private & (filters.document | filters.video | filters.audio) & ~uploader_mode_filter & ~filters.command(["start", "batch", "genlink", "upload_mode"]))
 async def single_file_gen_handler(client: Client, message: Message):
     if message.from_user.id not in client.admins:
         return

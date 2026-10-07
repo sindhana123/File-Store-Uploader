@@ -8,6 +8,39 @@ from config import OWNER_ID, URL_SHORTENERS
 import humanize
 from helper.font_converter import to_small_caps as sc
 
+@Client.on_message(filters.command("settings") & filters.private)
+async def settings_command(client, message):
+    if message.from_user.id not in client.admins:
+        return await message.reply_text("This command is only for admins.")
+    msg = f"""<blockquote>**{sc(f'Settings of @{client.username}')}:**</blockquote>
+**{sc('Force Sub Channels')}:** `{len(client.fsub_dict)}`
+**{sc('Auto Delete Timer')}:** `{client.auto_del}`
+**{sc('Protect Content')}:** `{"True" if client.protect else "False"}`
+**{sc('Disable Button')}:** `{"True" if client.disable_btn else "False"}`
+**{sc('Reply Text')}:** `{client.reply_text if client.reply_text else 'None'}`
+**{sc('Admins')}:** `{len(client.admins)}`
+**{sc('Start Message')}:**
+<pre>{client.messages.get('START', 'Empty')}</pre>
+**{sc('Start Image')}:** `{bool(client.messages.get('START_PHOTO', ''))}`
+**{sc('Force Sub Message')}:**
+<pre>{client.messages.get('FSUB', 'Empty')}</pre>
+**{sc('Force Sub Image')}:** `{bool(client.messages.get('FSUB_PHOTO', ''))}`
+**{sc('About Message')}:**
+<pre>{client.messages.get('ABOUT', 'Empty')}</pre>
+**{sc('Reply Message')}:**
+<pre>{client.reply_text}</pre>
+    """
+    reply_markup = InlineKeyboardMarkup([
+        [InlineKeyboardButton('ꜰꜱᴜʙ ᴄʜᴀɴɴᴇʟꜱ', 'fsub'), InlineKeyboardButton('ᴀᴅᴍɪɴꜱ', 'admins')],
+        [InlineKeyboardButton('ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ', 'auto_del'), InlineKeyboardButton('ᴘʀᴏᴛᴇᴄᴛ ᴄᴏɴᴛᴇɴᴛ', 'protect')],
+        [InlineKeyboardButton('ᴜʀʟ ꜱʜᴏʀᴛᴇɴᴇʀꜱ', 'url_shorteners'), InlineKeyboardButton('ᴘʜᴏᴛᴏꜱ', 'photos')],
+        [InlineKeyboardButton('ᴛᴇxᴛꜱ', 'texts'), InlineKeyboardButton('💳 ᴄʀᴇᴅɪᴛ ꜱʏꜱᴛᴇᴍ', 'credit_system')],
+        [InlineKeyboardButton('🗄️ ᴅʙ ᴄʜᴀɴɴᴇʟꜱ', 'db_channels'), InlineKeyboardButton('🔒 ꜱᴇᴄᴜʀɪᴛʏ (Tokens)', 'security_panel')],
+        [InlineKeyboardButton('🤖 ᴀᴜᴛᴏ ʙᴀᴛᴄʜ', 'auto_batch_settings'), InlineKeyboardButton('💎 ᴘʀᴇᴍɪᴜᴍ ᴜꜱᴇʀꜱ', 'premium_users_settings')],
+        [InlineKeyboardButton('ʜᴏᴍᴇ', 'home')]
+    ])
+    await message.reply_text(msg, reply_markup=reply_markup)
+
 @Client.on_callback_query(filters.regex("^settings$"))
 async def settings(client, query):
     msg = f"""<blockquote>**{sc(f'Settings of @{client.username}')}:**</blockquote>

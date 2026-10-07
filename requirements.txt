@@ -7,3 +7,9 @@ motor
 markdown
 asyncio
 TgCrypto
+pyromod
+ffmpeg-python
+aiofiles
+gdown
+pycryptodome
+mutagen
