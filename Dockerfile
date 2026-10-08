@@ -1,4 +1,4 @@
-FROM python:3.10-slim-buster
+FROM python:3.10-slim
 
 # Update and install required packages (ffmpeg is crucial for media bots)
 RUN apt-get update -y && apt-get install -y \
