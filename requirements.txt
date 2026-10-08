@@ -5,9 +5,8 @@ humanize
 psutil
 motor
 markdown
-asyncio
 TgCrypto
-pyromod
+git+https://github.com/Kurukkuraiy/pyromod.git
 ffmpeg-python
 aiofiles
 gdown
