@@ -19,5 +19,7 @@ RUN pip3 install -U --no-cache-dir -r requirements.txt
 # Copy all source files
 COPY . .
 
-# Run the command (skipping start.sh layout so pip install isn't re-run every container boot)
+EXPOSE 8080
+
+# Run the command
 CMD ["python3", "main.py"]
