@@ -44,15 +44,11 @@ class Bot(Client):
             bot_token=token
         )
         
-        try:
-            from pyromod.listen.listener_types import ListenerTypes
-            if not getattr(self, "listeners", None):
-                self.listeners = {}
-            for l_type in [ListenerTypes.MESSAGE, ListenerTypes.CALLBACK_QUERY, ListenerTypes.INLINE_QUERY]:
-                if l_type not in self.listeners:
-                    self.listeners[l_type] = []
-        except Exception:
-            pass
+        
+        # Use defaultdict to prevent any KeyError caused by pyromod
+        from collections import defaultdict
+        self.listeners = defaultdict(list)
+
 
         self.LOGGER = LOGGER
         self.name = session
