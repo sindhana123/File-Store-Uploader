@@ -1,14 +1,22 @@
 import json
 from motor.motor_asyncio import AsyncIOMotorClient
 
-# Load Mongo credentials from setup.json
-with open("setup.json", "r") as f:
-    data = json.load(f)
+import os
 
-config = data[0]  # because setup.json is a list
+# Try to get MongoDB URI from environment variables first (For Koyeb/Docker)
+MONGO_URI = os.getenv("DATABASE_URI")
+DB_NAME = os.getenv("DATABASE_NAME", "file_share_bot")
 
-MONGO_URI = config["db_uri"]
-DB_NAME = config.get("db_name", "file_share_bot")
+# If environment variable is missing, fallback to setup.json
+if not MONGO_URI:
+    try:
+        with open("setup.json", "r") as f:
+            data = json.load(f)
+            config = data[0]
+            MONGO_URI = config["db_uri"]
+            DB_NAME = config.get("db_name", "file_share_bot")
+    except Exception:
+        MONGO_URI = "mongodb://localhost:27017" # Dummy fallback
 
 client = AsyncIOMotorClient(MONGO_URI)
 db = client[DB_NAME]

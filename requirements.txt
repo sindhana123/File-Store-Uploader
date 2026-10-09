@@ -6,7 +6,7 @@ psutil
 motor
 markdown
 TgCrypto
-git+https://github.com/Kurukkuraiy/pyromod.git
+pyromod
 ffmpeg-python
 aiofiles
 gdown
