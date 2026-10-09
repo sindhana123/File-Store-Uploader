@@ -1,4 +1,4 @@
-import pyromod.listen
+import pyromod
 from pyromod.exceptions import ListenerTimeout
 from pyrogram import Client, filters, enums
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery

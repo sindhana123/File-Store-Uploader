@@ -1,15 +1,11 @@
 # Made by @Awakeners_Bots
 # GitHub: https://github.com/Awakener_Bots
 
-import pyromod.listen
+import pyromod
 from pyrogram.handlers.message_handler import MessageHandler
 from pyrogram.handlers.callback_query_handler import CallbackQueryHandler
 from pyrogram.handlers.inline_query_handler import InlineQueryHandler
 
-for handler in [MessageHandler, CallbackQueryHandler, InlineQueryHandler]:
-    if hasattr(handler, "resolve_future_or_callback"):
-        if hasattr(handler.resolve_future_or_callback, "__wrapped__"):
-            handler.resolve_future_or_callback = handler.resolve_future_or_callback.__wrapped__
 
 
 
@@ -45,12 +41,6 @@ class Bot(Client):
             workers=workers,
             bot_token=token
         )
-        
-        
-        # Use defaultdict to prevent any KeyError caused by pyromod
-        from collections import defaultdict
-        self.listeners = defaultdict(list)
-
 
         self.LOGGER = LOGGER
         self.name = session

@@ -1,0 +1,70 @@
+[
+    {
+        "session": "ses1",
+        "token": "",
+        "api_id": "",
+        "api_hash": "",
+        "workers": 8,
+        "db_uri": "",
+        "db_name": "Cluster0",
+        "fsubs": [],
+        "db": -1004461682860,
+        "auto_del": 300,
+        "messages": {
+            "START": "<b><blockquote><b><blockquote>Moshi Moshi Senpai {mention}</blockquote></b>\n<b>I'm Akuma Sama a Filestore bot </b></blockquote>",
+            "FSUB": "H\u1d07\u029f\u029f\u1d0f S\u1d07\u0274\u1d18\u1d00\u026a {mention}\n\n<b>Y\u1d0f\u1d1c N\u1d07\u1d07\u1d05 T\u1d0f J\u1d0f\u026a\u0274 I\u0274 M\u028f C\u029c\u1d00\u0274\u0274\u1d07\u029fs T\u1d0f G\u1d07\u1d1b F\u026a\u029f\u1d07s</b>",
+            "REPLY": "<b><blockquote>\u274c\ud835\uddd7\ud835\uddfc\ud835\uddfb'\ud835\ude01 \ud835\ude00\ud835\uddf2\ud835\uddfb\ud835\uddf1 \ud835\uddfa\ud835\uddf2 \ud835\uddf1\ud835\uddf6\ud835\uddff\ud835\uddf2\ud835\uddf0\ud835\ude01 \ud835\uddfa\ud835\uddf2\ud835\ude00\ud835\ude00\ud835\uddee\ud835\uddf4\ud835\uddf2\ud835\ude00 \ud835\uddf6\ud835\uddfb \ud835\uddf1\ud835\uddfa, \ud835\uddf1\ud835\uddfc \ud835\ude06\ud835\uddfc\ud835\ude02 \ud835\uddf5\ud835\uddee\ud835\ude03\ud835\uddf2 \ud835\uddee \ud835\uddf1\ud835\uddf2\ud835\uddee\ud835\ude01\ud835\uddf5 \ud835\ude04\ud835\uddf6\ud835\ude00\ud835\uddf5?</blockquote></b>",
+            "START_PHOTO": "https://i.ibb.co/WWSfkWLG/rylhm-Kk-E.jpg",
+            "FSUB_PHOTO": "https://i.ibb.co/WWSfkWLG/rylhm-Kk-E.jpg"
+        },
+        "admins": [
+            5816147544
+        ],
+        "disable_btn": true,
+        "protect": false,
+        "credit_config": {
+            "expiry_days": 30,
+            "referral_reward": 5,
+            "payment_method": "manual",
+            "upi_id": "GPGpapaji@Fam",
+            "phone": "XXXXXXXXXX",
+            "packages": [
+                {
+                    "id": "pkg_10",
+                    "credits": 10,
+                    "price": 50,
+                    "currency": "INR"
+                },
+                {
+                    "id": "pkg_25",
+                    "credits": 25,
+                    "price": 100,
+                    "currency": "INR",
+                    "popular": true
+                },
+                {
+                    "id": "pkg_50",
+                    "credits": 50,
+                    "price": 180,
+                    "currency": "INR"
+                },
+                {
+                    "id": "pkg_100",
+                    "credits": 100,
+                    "price": 300,
+                    "currency": "INR"
+                }
+            ]
+        },
+        "token_config": {
+            "token_expiry_minutes": 10,
+            "max_bypass_attempts": 5,
+            "bypass_check_hours": 24
+        },
+        "auto_batch_config": {
+            "enabled": true,
+            "time_window_seconds": 30,
+            "min_files_for_batch": 2
+        }
+    }
+]
