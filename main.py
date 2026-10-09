@@ -92,7 +92,7 @@ async def main():
         auto_del = config["auto_del"]
         db_uri = config["db_uri"]
         db_name = config["db_name"]
-        api_id = int(config["api_id"])
+        api_id = int(config["api_id"]) if config.get("api_id") else 0
         api_hash = config["api_hash"]
         protect = config["protect"]
         disable_btn = config["disable_btn"]
