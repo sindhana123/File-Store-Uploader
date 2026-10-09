@@ -74,6 +74,8 @@ async def main():
         try:
             with open("setup.json", "r", encoding="utf-8") as f:
                 setups = json.load(f)
+                if isinstance(setups, dict):
+                    setups = [setups]
         except Exception as e:
             print(f"Failed to load setup.json: {e}")
             return
