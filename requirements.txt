@@ -6,7 +6,7 @@ psutil
 motor
 markdown
 TgCrypto
-pyromod==2.1.2
+pyromod==2.1.0
 ffmpeg-python
 aiofiles
 gdown
