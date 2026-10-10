@@ -68,7 +68,7 @@ target/
 .ipynb_checkpoints
 
 # pyenv
-.python-version
+# .python-version - Removed: needed for Koyeb buildpack Python version pinning
 
 # celery beat schedule file
 celerybeat-schedule
