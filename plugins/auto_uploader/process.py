@@ -4,7 +4,7 @@ from pyrogram.types import Message
 from utils.job_queue import process_queue
 import os
 import asyncio
-from pyromod.exceptions import ListenerTimeout
+from pyromod import ListenerTimeout
 
 command_filter = filters.create(lambda _, __, msg: bool(msg.text and msg.text.startswith("/")))
 

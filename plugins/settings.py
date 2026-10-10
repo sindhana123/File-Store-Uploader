@@ -3,7 +3,7 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram.errors.pyromod import ListenerTimeout
+from pyromod import ListenerTimeout
 from config import OWNER_ID, URL_SHORTENERS
 import humanize
 from helper.font_converter import to_small_caps as sc
