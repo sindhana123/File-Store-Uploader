@@ -7,7 +7,7 @@
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from pyromod import ListenerTimeout
+from pyromod.listen import ListenerTimeout
 from helper.enhanced_credit_db import EnhancedCreditDB
 from helper.payment import PaymentGateway, DEFAULT_PACKAGES
 from helper.font_converter import to_small_caps as sc
