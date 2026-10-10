@@ -120,9 +120,11 @@ async def main():
 
 
 async def runner():
-    await asyncio.gather(
-        main(),
-        web_app()
-    )
+    web = asyncio.create_task(web_app())
+    try:
+        await main()
+    except Exception as e:
+        print(f"Bot failed with error: {e}")
+    await web
 
 asyncio.run(runner())
