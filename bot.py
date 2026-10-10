@@ -41,6 +41,10 @@ class Bot(Client):
             workers=workers,
             bot_token=token
         )
+        
+        # Safely initialize listeners to avoid pyromod KeyError
+        from collections import defaultdict
+        self.listeners = defaultdict(dict)
 
         self.LOGGER = LOGGER
         self.name = session
