@@ -108,3 +108,5 @@ downloads/
 *.session
 *.session-journal
 debug_regex.py
+setup.json.bak
+setup.json
