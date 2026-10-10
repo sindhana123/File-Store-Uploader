@@ -2,7 +2,7 @@ import os
 import html
 from pyrogram import Client, filters, enums
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from pyromod.listen import ListenerTimeout
+from pyromod.listen.listen import ListenerTimeout
 
 EDIT_STATE = {}
 

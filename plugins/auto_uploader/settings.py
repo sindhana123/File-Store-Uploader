@@ -1,5 +1,5 @@
 import pyromod.listen
-from pyromod.listen import ListenerTimeout
+from pyromod.listen.listen import ListenerTimeout
 from pyrogram import Client, filters, enums
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 import json
